@@ -1,0 +1,38 @@
+# Ticket Triage System Under Test: service + Ollama (CPU only).
+# No GPU devices are passed through, so Ollama runs on CPU as the client requires.
+services:
+  ollama:
+    image: ollama/ollama:${OLLAMA_IMAGE_TAG:-0.12.3}
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    environment:
+      OLLAMA_NUM_PARALLEL: ${OLLAMA_NUM_PARALLEL:-1}        # one inference at a time (baseline)
+      OLLAMA_MAX_LOADED_MODELS: "1"
+      OLLAMA_KEEP_ALIVE: "-1"                               # keep model resident, no reload between requests
+      OLLAMA_MAX_QUEUE: ${OLLAMA_MAX_QUEUE:-512}            # Ollama default; requests beyond this get 503
+    volumes:
+      - ollama_models:/root/.ollama
+    restart: unless-stopped
+
+  service:
+    build: ./service
+    container_name: triage-service
+    depends_on:
+      - ollama
+    ports:
+      - "8000:8000"
+    environment:
+      OLLAMA_URL: http://ollama:11434
+      MODEL: ${MODEL:-llama3.2:3b}
+      NUM_CTX: ${NUM_CTX:-2048}
+      DB_PATH: /data/tickets.db
+      LOG_DIR: /logs
+    volumes:
+      - ./logs:/logs          # request logs kept in the repo
+      - triage_db:/data
+    restart: unless-stopped
+
+volumes:
+  ollama_models:
+  triage_db:

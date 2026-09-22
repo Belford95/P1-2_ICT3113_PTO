@@ -1,0 +1,6 @@
+# Host-side tooling (test drivers + analysis). The service has its own requirements in service/.
+pandas>=2.0
+numpy
+requests
+openpyxl
+matplotlib
