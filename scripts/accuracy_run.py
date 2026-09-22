@@ -1,7 +1,7 @@
 """Send every golden-set ticket through POST /tickets for the model the service is running.
 
 Usage: python scripts/accuracy_run.py --url http://<sut-ip>:8000
-Switch model first:  MODEL=qwen2.5:7b docker compose up -d service   (on the SUT)
+Switch model first: set MODEL in .env, then `docker compose up -d service` (on the SUT)
 
 Sequential, one request at a time (this is an accuracy test, not a load test).
 Writes results/accuracy/<model>__<timestamp>/responses.csv + meta.json.

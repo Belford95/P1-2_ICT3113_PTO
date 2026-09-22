@@ -1,6 +1,6 @@
 """Sample container CPU/memory on the SUT while tests run (evidence for the bottleneck diagnosis).
 
-Usage (on the SUT machine): python scripts/monitor_docker.py --tag load_llama3.2-3b_rate-4 [--interval 2]
+Usage (on the SUT machine): python scripts/monitor_docker.py --tag <model>_<rate> [--interval 2]
 Stop with Ctrl+C. Writes results/monitor/<timestamp>_<tag>.csv (epoch_ms, container, cpu_pct, mem_mib, mem_pct).
 cpu_pct is docker's figure: 100% = one full core, so 1600% = all 16 logical CPUs.
 """

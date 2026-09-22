@@ -32,6 +32,8 @@ Every request is appended as one JSON line to `logs/service.jsonl`. Each line re
 | `jmeter/` | open-model test plan, properties, `run_load.ps1`, ticket feed |
 | `results/` | `.jtl` files, accuracy runs, monitor CSVs, summaries (all kept) |
 | `logs/` | service request logs (all kept) |
+| `docs/service_design.md` | architecture, endpoints, design decisions, log format |
+| `docs/models.md` | candidate models and why |
 | `docs/playbook.md` | step-by-step test procedure |
 
 Host tooling: `pip install -r scripts/requirements.txt`

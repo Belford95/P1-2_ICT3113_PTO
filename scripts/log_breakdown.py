@@ -1,6 +1,6 @@
 """Where does the time go? Break POST /tickets latency into Ollama phases, from the service log.
 
-Usage: python scripts/log_breakdown.py [run_id or prefix*]     e.g.  "load__llama3.2-3b__rate-4__*"
+Usage: python scripts/log_breakdown.py [run_id or prefix*]     e.g.  "load__<model>__rate-<r>__*"
 
   service latency_ms = total time inside the service
   ollama total_ms    = Ollama's own processing time (load + prompt eval + generation)

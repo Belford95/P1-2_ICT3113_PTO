@@ -1,6 +1,6 @@
 """Pull candidate models into the Ollama container and record their exact tag + digest.
 
-Usage (on the SUT, stack running): python scripts/pin_models.py gemma3:1b qwen2.5:1.5b llama3.2:3b qwen2.5:7b
+Usage (on the SUT, stack running): python scripts/pin_models.py <model tag> [<model tag> ...]
 Writes results/model_pins.json and results/model_pins.md (the table for Slide 5).
 """
 import json
@@ -12,7 +12,9 @@ import requests
 from common import ROOT
 
 OLLAMA = "http://localhost:11434"
-models = sys.argv[1:] or ["gemma3:1b", "qwen2.5:1.5b", "llama3.2:3b", "qwen2.5:7b"]
+models = sys.argv[1:]
+if not models:
+    raise SystemExit("give the candidate model tags, e.g. python scripts/pin_models.py <tag1> <tag2> <tag3>")
 for m in models:
     print("pulling", m)
     subprocess.run(["docker", "exec", "ollama", "ollama", "pull", m], check=True)

@@ -10,7 +10,7 @@ import time
 import requests
 
 OLLAMA_URL = os.getenv("OLLAMA_URL", "http://ollama:11434")
-MODEL = os.getenv("MODEL", "llama3.2:3b")
+MODEL = os.getenv("MODEL", "")  # set in .env; candidates chosen by the Model/requirements owner (docs/models.md)
 NUM_CTX = int(os.getenv("NUM_CTX", "2048"))
 OLLAMA_TIMEOUT_S = float(os.getenv("OLLAMA_TIMEOUT_S", "600"))
 
@@ -24,19 +24,12 @@ CATEGORIES = [
     "Money transfer or service",
 ]
 
-SYSTEM_PROMPT = """You are a triage assistant at a financial services complaints desk.
-Classify the customer complaint into exactly one of these categories:
-
-- Credit reporting: errors or disputes about credit reports or credit scores, identity theft showing on a report, credit bureau investigations.
-- Debt collection: attempts to collect a debt, collector communication or harassment, debts not owed, validation of debt.
-- Mortgage: home loans, mortgage servicing, escrow, loan modification, foreclosure, home equity loans.
-- Credit card: credit card accounts, card billing disputes, card fees and interest, card rewards, card applications.
-- Bank account or service: checking or savings accounts, deposits and withdrawals, overdraft fees, account opening or closing, debit cards.
-- Consumer loan: vehicle loans or leases, personal loans, installment loans, payday loans, student loans.
-- Money transfer or service: wire transfers, remittances, money orders, peer-to-peer payment apps, virtual currency transfers.
-
-Choose the category describing the product or service the complaint is mainly about.
-Respond with JSON only: {"category": "<one of the categories above>"}"""
+# Zero-shot prompt: category names only, no definitions or examples (no training involved).
+SYSTEM_PROMPT = (
+    "Classify the customer complaint into exactly one of these categories:\n"
+    + "\n".join(f"- {c}" for c in CATEGORIES)
+    + '\n\nRespond with JSON only: {"category": "<one of the categories above>"}'
+)
 
 # Structured output: Ollama constrains decoding to this JSON schema.
 RESPONSE_SCHEMA = {
@@ -52,6 +45,8 @@ class ClassificationError(Exception):
 
 def classify(narrative: str) -> dict:
     """Returns {"category", "raw", "ollama": {...timings...}, "model_ms"}."""
+    if not MODEL:
+        raise ClassificationError("no model configured: set MODEL in .env")
     payload = {
         "model": MODEL,
         "messages": [

@@ -2,15 +2,19 @@
 # No GPU devices are passed through, so Ollama runs on CPU as the client requires.
 services:
   ollama:
-    image: ollama/ollama:${OLLAMA_IMAGE_TAG:-0.12.3}
+    # TODO: pin an exact version (e.g. ollama/ollama:0.x.y) before the first benchmark run,
+    # and report it with the test environment.
+    image: ollama/ollama:${OLLAMA_IMAGE_TAG:-latest}
     container_name: ollama
     ports:
       - "11434:11434"
     environment:
-      OLLAMA_NUM_PARALLEL: ${OLLAMA_NUM_PARALLEL:-1}        # one inference at a time (baseline)
+      # BASELINE: Ollama processes exactly ONE request at a time. Concurrent requests
+      # wait in Ollama's internal queue. Fixed at 1 on purpose; do not change for Assignment 1.
+      OLLAMA_NUM_PARALLEL: "1"
       OLLAMA_MAX_LOADED_MODELS: "1"
-      OLLAMA_KEEP_ALIVE: "-1"                               # keep model resident, no reload between requests
-      OLLAMA_MAX_QUEUE: ${OLLAMA_MAX_QUEUE:-512}            # Ollama default; requests beyond this get 503
+      OLLAMA_KEEP_ALIVE: "-1"         # keep the model in memory; no reload between requests
+      OLLAMA_MAX_QUEUE: "512"         # Ollama's default; requests beyond this are rejected (HTTP 503)
     volumes:
       - ollama_models:/root/.ollama
     restart: unless-stopped
@@ -24,13 +28,13 @@ services:
       - "8000:8000"
     environment:
       OLLAMA_URL: http://ollama:11434
-      MODEL: ${MODEL:-llama3.2:3b}
+      MODEL: ${MODEL:-}               # the candidate under test; set in .env (see docs/models.md)
       NUM_CTX: ${NUM_CTX:-2048}
       DB_PATH: /data/tickets.db
       LOG_DIR: /logs
     volumes:
-      - ./logs:/logs          # request logs kept in the repo
-      - triage_db:/data
+      - ./logs:/logs                  # request logs, kept in the repo
+      - triage_db:/data               # SQLite database
     restart: unless-stopped
 
 volumes:

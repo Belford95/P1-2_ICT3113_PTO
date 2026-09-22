@@ -3,3 +3,7 @@ __pycache__/
 *.pyc
 .venv/
 jmeter.log
+
+# Service request logs: ignored while building. REMOVE this line before real test runs,
+# because the brief requires logs to be kept in the repo for every reported run.
+logs/*.jsonl
