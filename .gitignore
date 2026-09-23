@@ -2,6 +2,12 @@
 __pycache__/
 *.pyc
 .venv/
+venv/
+ENV/
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
 jmeter.log
 
 # Service request logs: ignored while building. REMOVE this line before real test runs,
