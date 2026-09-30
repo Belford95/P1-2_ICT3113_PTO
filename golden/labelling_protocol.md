@@ -8,7 +8,7 @@ The golden set is the reference against which classification accuracy is measure
 
 ### 1.2 Procedure
 
-1. **Label independently.** Each annotator labels every ticket alone. Do not confer or compare labels until everyone has finished.
+1. **Label independently.** Each annotator labels every ticket alone. Do not confer or compare labels until everyone has finished. Labelling should identify 1. The row number of the reviewed ticket, 2. The classified source_label, 3. The original narrative and 4. The confidence rating (see point 4) and lastly, 5. The notes/remarks (for any rating below 3).
 2. **Use the ticket text only.** Ignore any category the consumer originally chose for the complaint, because it is unreliable. Do not research the complaint outside the text.
 3. **Pick exactly one label.** Read the whole narrative, then choose one of the 7 categories in 1.3, or `None / Unclear` for tickets that fit none (Section 2).
 4. **Rate how sure you are of your chosen label.** This is your certainty that the label is the correct category. It is *not* whether the ticket is genuine, serious or valid; every ticket gets labelled, whatever its merit.
@@ -92,5 +92,6 @@ More cases that fall here:
 | Version | Date | Trigger | Change |
 |---|---|---|---|
 | v1.0 | 2026-09-29 | Initial draft, before any labelling | Categories, edge-case rules, `None / Unclear` policy |
+| v2.0 | 2026-09-30 | Unclear on labelling columns        | Updated step 1 of the procedure for clarity          |
 
 *(For each amendment, add a row: the disagreement that exposed the gap, what changed, and the date.)*
