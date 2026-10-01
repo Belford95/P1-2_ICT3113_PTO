@@ -93,5 +93,6 @@ More cases that fall here:
 |---|---|---|---|
 | v1.0 | 2026-09-29 | Initial draft, before any labelling | Categories, edge-case rules, `None / Unclear` policy |
 | v2.0 | 2026-09-30 | Unclear on labelling columns        | Updated step 1 of the procedure for clarity          |
+| v2.1 | 2026-10-01 | Unclear distinction between Consumer loan and Mortgage | Clarified that a generic loan is Consumer loan unless the ticket states it is secured by a home |
 
 *(For each amendment, add a row: the disagreement that exposed the gap, what changed, and the date.)*
