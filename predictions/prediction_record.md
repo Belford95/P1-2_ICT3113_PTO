@@ -84,9 +84,3 @@ Before the golden set was frozen, the protocol's own disambiguation rules (`gold
 - If the 50 GB/s bandwidth assumption is badly off (e.g. real effective bandwidth is 30 GB/s, not 50), every latency prediction scales up proportionally — a clean, explicable miss.
 - If `phi4-mini` underperforms `llama3.2:3b` despite being larger, that would suggest its training is weaker for this task than assumed.
 - If per-category accuracy is roughly flat across categories (no pair standing out), that would suggest the protocol's hardest-case reasoning doesn't transfer to how models actually fail, which is itself a useful finding for Slide 11.
-
-## Open items
-
-- [ ] Team review and sign-off before freeze — these are starting numbers, not final commitments.
-- [x] Golden set frozen and committed (`bac2993`, 173 tickets, 95.0% agreement, κ = 0.942) — this file should be committed in the same freeze window, per the brief.
-- [ ] Revisit the 50 GB/s bandwidth assumption if anyone can find a published benchmark for this specific CPU.
