@@ -2,9 +2,9 @@
 # No GPU devices are passed through, so Ollama runs on CPU as the client requires.
 services:
   ollama:
-    # TODO: pin an exact version (e.g. ollama/ollama:0.x.y) before the first benchmark run,
-    # and report it with the test environment.
-    image: ollama/ollama:${OLLAMA_IMAGE_TAG:-latest}
+    # Pinned to the version running on the confirmed benchmark host (AMD Ryzen 7 7745HX, CPU-only
+    # confirmed 2026-10-02). Reported with the test environment on Slide 7.
+    image: ollama/ollama:${OLLAMA_IMAGE_TAG:-0.35.0}
     container_name: ollama
     ports:
       - "11434:11434"
