@@ -1,0 +1,7 @@
+{
+  "run_id": "acc__qwen2.5-7b__20261006-173929",
+  "model": "qwen2.5:7b",
+  "url": "http://localhost:8000",
+  "started": "20261006-173929",
+  "n": 173
+}

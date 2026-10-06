@@ -1,0 +1,7 @@
+{
+  "run_id": "acc__llama3.2-3b__20261006-173346",
+  "model": "llama3.2:3b",
+  "url": "http://localhost:8000",
+  "started": "20261006-173346",
+  "n": 173
+}

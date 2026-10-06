@@ -1,0 +1,8 @@
+gold,Credit reporting,Debt collection,Mortgage,Credit card,Bank account or service,Consumer loan,Money transfer or service
+Credit reporting,34,2,1,1,1,2,0
+Debt collection,0,16,0,1,0,1,0
+Mortgage,0,0,20,0,1,1,0
+Credit card,2,0,0,11,4,0,0
+Bank account or service,0,0,0,1,26,0,0
+Consumer loan,3,0,1,0,0,21,0
+Money transfer or service,0,0,0,2,13,0,8
