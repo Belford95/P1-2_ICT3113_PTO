@@ -2,6 +2,15 @@
   "ollama_version": "0.35.0",
   "models": [
     {
+      "tag": "llama3.2:1b",
+      "digest": "baf6a787fdffd633537aa2eb51cfd54cb93ff08e28040095462bb63daf552878",
+      "size_gb": 1.32,
+      "parameter_size": "1.2B",
+      "quantization": "Q8_0",
+      "family": "llama",
+      "license_first_line": "LLAMA 3.2 COMMUNITY LICENSE AGREEMENT"
+    },
+    {
       "tag": "llama3.2:3b",
       "digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
       "size_gb": 2.02,
