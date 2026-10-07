@@ -1,0 +1,2 @@
+run_id,endpoint,jmeter_n,service_n,count_match,jmeter_ok,service_ok,jmeter_p50_ms,service_p50_ms,overhead_p50_ms,client_timeouts_completed_by_service
+stress__phi4-mini__custom-20261007-1950__run1__20261007-195017,POST /tickets,500,500,True,500,500,36697.5,36664.215,33.28500000000349,0

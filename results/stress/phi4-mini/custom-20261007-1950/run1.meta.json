@@ -1,0 +1,14 @@
+﻿{
+    "sut":  "http://172.27.242.29:8000",
+    "started":  "2026-10-07T19:50:17.1240593+08:00",
+    "kind":  "stress",
+    "search_schedule":  "pause(1 s)",
+    "config":  "custom-20261007-1950",
+    "run":  1,
+    "schedule":  "rate(10/min) random_arrivals(5 min) rate(10/min) rate(20/min) random_arrivals(5 min) rate(20/min) rate(30/min) random_arrivals(5 min) rate(30/min) rate(40/min) random_arrivals(5 min) rate(40/min) pause(5 min)",
+    "stats_schedule":  "pause(1 s)",
+    "loadgen_host":  "MUGGING101",
+    "model":  "phi4-mini",
+    "run_id":  "stress__phi4-mini__custom-20261007-1950__run1__20261007-195017",
+    "finished":  "2026-10-07T20:16:18.9420051+08:00"
+}
