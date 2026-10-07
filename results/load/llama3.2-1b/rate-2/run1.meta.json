@@ -1,0 +1,14 @@
+﻿{
+    "sut":  "http://172.27.242.29:8000",
+    "started":  "2026-10-07T12:21:22.1974406+08:00",
+    "kind":  "load",
+    "search_schedule":  "pause(1 s)",
+    "config":  "rate-2",
+    "run":  1,
+    "schedule":  "rate(2/min) random_arrivals(30 min) rate(2/min)",
+    "stats_schedule":  "pause(1 s)",
+    "loadgen_host":  "MUGGING101",
+    "model":  "llama3.2:1b",
+    "run_id":  "load__llama3.2-1b__rate-2__run1__20261007-122122",
+    "finished":  "2026-10-07T12:52:24.5829292+08:00"
+}

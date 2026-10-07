@@ -1,0 +1,13 @@
+run_id,endpoint,jmeter_n,service_n,count_match,jmeter_ok,service_ok,jmeter_p50_ms,service_p50_ms,overhead_p50_ms,client_timeouts_completed_by_service
+load__llama3.2-1b__rate-2__run1__20261007-122122,POST /tickets,60,60,True,60,60,1173.0,1102.9250000000002,70.07499999999982,0
+load__llama3.2-1b__rate-2__run2__20261007-125324,POST /tickets,60,60,True,60,60,830.5,785.4200000000001,45.07999999999993,0
+load__llama3.2-1b__rate-2__run3__20261007-132526,POST /tickets,60,60,True,60,60,859.0,782.905,76.09500000000003,0
+load__llama3.2-3b__rate-2__run1__20261007-140726,POST /tickets,60,60,True,60,60,1929.0,1869.4,59.59999999999991,0
+load__llama3.2-3b__rate-2__run2__20261007-143928,POST /tickets,60,60,True,60,60,983.5,904.63,78.87,0
+load__llama3.2-3b__rate-2__run3__20261007-151129,POST /tickets,60,60,True,60,60,938.0,874.7049999999999,63.29500000000007,0
+load__phi4-mini__rate-2__run1__20261007-155140,POST /tickets,60,60,True,60,60,2846.0,2626.0150000000003,219.98499999999967,0
+load__phi4-mini__rate-2__run2__20261007-162342,POST /tickets,60,60,True,60,60,1287.5,1241.205,46.29500000000007,0
+load__phi4-mini__rate-2__run3__20261007-165544,POST /tickets,60,60,True,60,60,1124.5,1068.865,55.63499999999999,0
+load__qwen2.5-7b__rate-2__run1__20261007-172912,POST /tickets,60,60,True,60,60,4223.5,4154.889999999999,68.61000000000058,0
+load__qwen2.5-7b__rate-2__run2__20261007-180114,POST /tickets,60,60,True,60,60,1231.0,1163.96,67.03999999999996,0
+load__qwen2.5-7b__rate-2__run3__20261007-183316,POST /tickets,60,60,True,60,60,1326.0,1235.0349999999999,90.96500000000015,0

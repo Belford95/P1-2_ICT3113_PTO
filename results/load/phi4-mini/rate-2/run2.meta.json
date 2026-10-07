@@ -1,0 +1,14 @@
+﻿{
+    "sut":  "http://172.27.242.29:8000",
+    "started":  "2026-10-07T16:23:42.3521960+08:00",
+    "kind":  "load",
+    "search_schedule":  "pause(1 s)",
+    "config":  "rate-2",
+    "run":  2,
+    "schedule":  "rate(2/min) random_arrivals(30 min) rate(2/min)",
+    "stats_schedule":  "pause(1 s)",
+    "loadgen_host":  "MUGGING101",
+    "model":  "phi4-mini",
+    "run_id":  "load__phi4-mini__rate-2__run2__20261007-162342",
+    "finished":  "2026-10-07T16:54:44.1190687+08:00"
+}
