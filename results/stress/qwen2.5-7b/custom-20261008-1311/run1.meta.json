@@ -1,0 +1,14 @@
+﻿{
+    "sut":  "http://172.27.242.29:8000",
+    "started":  "2026-10-08T13:11:17.0645184+08:00",
+    "kind":  "stress",
+    "search_schedule":  "pause(1 s)",
+    "config":  "custom-20261008-1311",
+    "run":  1,
+    "schedule":  "rate(10/min) random_arrivals(5 min) rate(10/min) rate(20/min) random_arrivals(5 min) rate(20/min) rate(30/min) random_arrivals(5 min) rate(30/min) rate(40/min) random_arrivals(5 min) rate(40/min) pause(5 min)",
+    "stats_schedule":  "pause(1 s)",
+    "loadgen_host":  "MUGGING101",
+    "model":  "qwen2.5:7b",
+    "run_id":  "stress__qwen2.5-7b__custom-20261008-1311__run1__20261008-131117",
+    "finished":  "2026-10-08T13:37:19.9932298+08:00"
+}
