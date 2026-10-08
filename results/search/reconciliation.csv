@@ -1,0 +1,7 @@
+run_id,endpoint,jmeter_n,service_n,count_match,jmeter_ok,service_ok,jmeter_p50_ms,service_p50_ms,overhead_p50_ms,client_timeouts_completed_by_service
+search__qwen2.5-7b__rate-2_search-4__run1__20261008-215853,POST /tickets,60,60,True,60,60,5176.0,5129.02,46.97999999999956,0
+search__qwen2.5-7b__rate-2_search-4__run1__20261008-215853,GET /search,120,120,True,120,120,34.0,2.275,31.725,0
+search__qwen2.5-7b__rate-2_search-4__run2__20261008-223055,POST /tickets,60,60,True,59,60,3530.0,3660.665,-130.66499999999996,1
+search__qwen2.5-7b__rate-2_search-4__run2__20261008-223055,GET /search,120,120,True,120,120,34.0,2.5949999999999998,31.405,0
+search__qwen2.5-7b__rate-2_search-4__run3__20261008-230257,POST /tickets,60,60,True,60,60,3245.5,3141.48,104.01999999999998,0
+search__qwen2.5-7b__rate-2_search-4__run3__20261008-230257,GET /search,120,120,True,120,120,37.0,2.81,34.19,0

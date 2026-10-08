@@ -1,0 +1,13 @@
+﻿{
+    "sut":  "http://172.27.242.29:8000",
+    "started":  "2026-10-08T22:30:55.7838064+08:00",
+    "kind":  "search",
+    "search_schedule":  "rate(4/min) random_arrivals(30 min) rate(4/min)",
+    "config":  "rate-2_search-4",
+    "run":  2,
+    "schedule":  "rate(2/min) random_arrivals(30 min) rate(2/min)",
+    "loadgen_host":  "MUGGING101",
+    "model":  "qwen2.5:7b",
+    "run_id":  "search__qwen2.5-7b__rate-2_search-4__run2__20261008-223055",
+    "finished":  "2026-10-08T23:01:57.6624507+08:00"
+}
