@@ -1,6 +1,6 @@
 # Prediction record (Assignment 2)
 
-**Status: DRAFT.** Owner: Zhi Ming. To be committed with `docs/escalation_rule.md` before any Assignment 2 benchmark run (gate: Tue 17 Nov). After that commit it is not changed.
+**Status: FINAL.** Owner: Zhi Ming. Committed with `docs/escalation_rule.md` in 06d309a on 10 Nov, before any Assignment 2 benchmark run. Not changed since that commit except this status line (wording only, no prediction or number changed).
 
 **Basis.** Every figure below comes from the **tuning set** (87 tickets, odd positions in `golden/split_a2.csv`), via `docs/a2_cascade_simulation.md` and `scripts/a2_tuning_breakdown.py`. The only test-derived inputs used are the client's limits in `golden/limits_a2.md` (overall at least 74.9%; each category at least qwen's test score minus 15 points), because they define "qualifying". No test-set score was used to choose or predict anything else. The test set is 86 tickets.
 

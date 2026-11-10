@@ -1,6 +1,6 @@
 # Escalation rule (Assignment 2)
 
-**Status: DRAFT.** Owner: Zhi Ming. To be committed before any Assignment 2 benchmark run (gate: Tue 17 Nov). After that commit it is not changed.
+**Status: FINAL.** Owner: Zhi Ming. Committed in 06d309a on 10 Nov, before any Assignment 2 benchmark run. Not changed since that commit except this status line (wording only, no rule or number changed).
 
 **Evidence base.** The rule and both settings were chosen from **tuning-set numbers only** (87 tickets, odd positions in `golden/split_a2.csv`): `docs/a2_tuning_reliability.md`, `docs/a2_cascade_simulation.md`, and `scripts/a2_tuning_breakdown.py` (which drops every test-set row at load). No test-set ticket or result was used to choose the rule or its settings.
 
