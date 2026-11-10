@@ -12,7 +12,7 @@ services:
       # BASELINE: Ollama processes exactly ONE request at a time. Concurrent requests
       # wait in Ollama's internal queue. Fixed at 1 on purpose; do not change for Assignment 1.
       OLLAMA_NUM_PARALLEL: "1"
-      OLLAMA_MAX_LOADED_MODELS: "1"
+      OLLAMA_MAX_LOADED_MODELS: "2"
       OLLAMA_KEEP_ALIVE: "-1"         # keep the model in memory; no reload between requests
       OLLAMA_MAX_QUEUE: "512"         # Ollama's default; requests beyond this are rejected (HTTP 503)
     volumes:
