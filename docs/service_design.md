@@ -57,3 +57,54 @@ Every request, on every endpoint, is appended as **one JSON line** to `logs/serv
 | `model_ms` | time the service waited for Ollama |
 | `ollama.*` | Ollama's own timing: model load, prompt processing (tokens and ms), answer generation (tokens and ms) |
 | `error` | the failure reason, when the request failed |
+
+---
+
+# Assignment 2: cascade mode
+
+`POST /tickets` can now run either a single model (Assignment 1 behaviour) or the cascade of
+`docs/escalation_rule.md`. Everything else is unchanged: same endpoints, same prompt, same seven
+categories, same storage, same logging, still synchronous with no caching, queueing or retries.
+
+## Configuration (environment only, no code change between runs)
+
+| Variable | Single mode | Cascade mode |
+|---|---|---|
+| `MODE` | `single` | `cascade` |
+| `MODEL` | the candidate tag | unused |
+| `SMALL_MODEL` | unused | classifies first (`phi4-mini`) |
+| `LARGE_MODEL` | unused | answers escalated tickets, final (`qwen2.5:7b`) |
+| `CASCADE_SETTING` | unused | `1` (escalate Bank account) or `2` (+ Consumer loan) |
+| `CONFIG_LABEL` | defaults to `MODEL` | defaults to `cascade-setting-<n>` |
+
+Set them in `.env`, then `docker compose up -d service`. `GET /health` returns the active
+configuration (`mode`, models, setting, the escalation list and `num_ctx`); check it before every run.
+
+## What the caller sees
+
+The response is `{id, category, model}` as in Assignment 1, but **`model` is `CONFIG_LABEL`: one
+fixed string for every ticket in a configuration**. The caller cannot tell which model answered, as
+Step 2 of the brief requires. `GET /search` and `GET /stats` are unchanged.
+
+## What the log records (one JSON line per request, as before)
+
+| Field | Meaning |
+|---|---|
+| `config`, `mode` | the active configuration label and mode |
+| `final_model` | the model whose answer was returned |
+| `escalated` | true when the ticket went to the large model |
+| `cascade_setting` | `1` or `2`; null in single mode |
+| `small_category` | the small model's predicted category (or `ERROR: …` if its call failed) |
+| `small_model_ms`, `large_model_ms` | time in each model call; `large_model_ms` is null when not escalated |
+| `model_ms` | total model time (both calls when escalated) |
+| `ollama` | Ollama's own timings for the **final** call |
+
+The escalation fraction is derived from `escalated` in these log lines, never from the response.
+
+## Failure behaviour
+
+| Situation | Result |
+|---|---|
+| Small model fails or returns an invalid category | Escalate to the large model (rule section 4) |
+| Large model fails after escalation | HTTP 502, no fallback, so the failure shows in the error rate |
+| Single mode, model fails | HTTP 502, as in Assignment 1 |

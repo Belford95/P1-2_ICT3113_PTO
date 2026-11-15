@@ -43,12 +43,19 @@ class ClassificationError(Exception):
     pass
 
 
-def classify(narrative: str) -> dict:
-    """Returns {"category", "raw", "ollama": {...timings...}, "model_ms"}."""
-    if not MODEL:
+def classify(narrative: str, model: str | None = None) -> dict:
+    """Returns {"model", "category", "raw", "ollama": {...timings...}, "model_ms"}.
+
+    `model` names the Ollama tag to use; it defaults to MODEL (single-model mode).
+    The prompt, schema and options are identical whichever model is passed: A2 fixes
+    the classification prompt and Ollama's inference settings (num_ctx included, or
+    Ollama would reload a model whose context size changed).
+    """
+    model = model or MODEL
+    if not model:
         raise ClassificationError("no model configured: set MODEL in .env")
     payload = {
-        "model": MODEL,
+        "model": model,
         "messages": [
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": narrative},
@@ -62,10 +69,10 @@ def classify(narrative: str) -> dict:
     try:
         r = requests.post(f"{OLLAMA_URL}/api/chat", json=payload, timeout=OLLAMA_TIMEOUT_S)
     except requests.RequestException as e:
-        raise ClassificationError(f"ollama request failed: {e}") from e
+        raise ClassificationError(f"ollama request failed ({model}): {e}") from e
     model_ms = (time.perf_counter() - t0) * 1000
     if r.status_code != 200:
-        raise ClassificationError(f"ollama HTTP {r.status_code}: {r.text[:300]}")
+        raise ClassificationError(f"ollama HTTP {r.status_code} ({model}): {r.text[:300]}")
 
     body = r.json()
     raw = body.get("message", {}).get("content", "")
@@ -79,7 +86,7 @@ def classify(narrative: str) -> dict:
         "eval_count": body.get("eval_count"),
         "eval_ms": body.get("eval_duration", 0) / ns,
     }
-    return {"category": category, "raw": raw, "ollama": timings, "model_ms": model_ms}
+    return {"model": model, "category": category, "raw": raw, "ollama": timings, "model_ms": model_ms}
 
 
 def _parse_category(raw: str) -> str:

@@ -28,7 +28,15 @@ services:
       - "8000:8000"
     environment:
       OLLAMA_URL: http://ollama:11434
-      MODEL: ${MODEL:-}               # the candidate under test; set in .env (see docs/models.md)
+      # A2 configuration, all from .env so no code change is needed between runs:
+      #   MODE=single  + MODEL=<tag>
+      #   MODE=cascade + SMALL_MODEL=<tag> LARGE_MODEL=<tag> CASCADE_SETTING=1|2
+      MODE: ${MODE:-single}
+      MODEL: ${MODEL:-}               # single mode: the candidate under test
+      SMALL_MODEL: ${SMALL_MODEL:-}   # cascade: classifies first
+      LARGE_MODEL: ${LARGE_MODEL:-}   # cascade: answers escalated tickets, final
+      CASCADE_SETTING: ${CASCADE_SETTING:-}
+      CONFIG_LABEL: ${CONFIG_LABEL:-} # fixed label returned to the caller; defaults per mode
       NUM_CTX: ${NUM_CTX:-2048}
       DB_PATH: /data/tickets.db
       LOG_DIR: /logs
