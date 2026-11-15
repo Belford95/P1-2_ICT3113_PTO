@@ -1,0 +1,39 @@
+{
+  "run_id": "a2__S__20261115-204236",
+  "measured": "20261115-204236",
+  "top_model": "qwen2.5:7b",
+  "health": {
+    "mode": "single",
+    "config_label": "qwen2.5:7b",
+    "num_ctx": 2048,
+    "model": "qwen2.5:7b"
+  },
+  "timings": [
+    {
+      "row": 2172,
+      "chars": 827,
+      "seconds": 3.86,
+      "category": "Credit reporting"
+    },
+    {
+      "row": 2044,
+      "chars": 845,
+      "seconds": 4.26,
+      "category": "Consumer loan"
+    },
+    {
+      "row": 2086,
+      "chars": 873,
+      "seconds": 3.69,
+      "category": "Mortgage"
+    }
+  ],
+  "S_seconds": 3.86,
+  "arrival_interval_seconds": 7.72,
+  "arrival_rate_per_min": 7.77,
+  "run_length_minutes": 5,
+  "expected_tickets_per_run": 39,
+  "http_timeout_seconds": 300,
+  "end_pause_minutes": 6,
+  "jmeter_schedule": "rate(7.77/min) random_arrivals(5 min) pause(6 min)"
+}
