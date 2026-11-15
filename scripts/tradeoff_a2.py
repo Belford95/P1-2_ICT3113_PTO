@@ -85,9 +85,16 @@ for r in p.itertuples():
     if not passes:  # hollow marker: ring in the series colour inside the surface gap
         ax.plot(r.p50_s, r.acc_pct, marker="o", ms=7, mfc=SURFACE, mec=SERIES, mew=2, zorder=5)
     status = {"reference": "reference", "PASS": "passes limits"}.get(r.verdict, "fails: " + (r.failed_categories or "overall"))
-    ax.annotate(f"{r.label}\n{r.acc_pct:.1f}% ({r.correct}/{r.n}), p50 {r.p50_s:.2f} s · {status}",
-                (r.p50_s, r.acc_pct), xytext=(10, 8), textcoords="offset points",
-                fontsize=8, color=INK, va="bottom")
+    setting = re.search(r"[Ss]etting[ -]?(\d+)", r.label)
+    name = f"Cascade setting {setting.group(1)}" if setting and "alone" not in r.label else r.label
+    # Points can sit close together: the leftmost label goes left of its point, the rest
+    # alternate below / above to the right.
+    rank = int(p.p50_s.rank(method="first")[r.Index]) - 1
+    xy, ha, va = ((-12, 6), "right", "bottom") if rank == 0 else \
+        (((10, -10), "left", "top") if rank % 2 else ((10, 8), "left", "bottom"))
+    ax.annotate(f"{name}\n{r.acc_pct:.1f}% ({r.correct}/{r.n}), p50 {r.p50_s:.2f} s\n{status}",
+                (r.p50_s, r.acc_pct), xytext=xy, textcoords="offset points",
+                fontsize=8, color=INK, ha=ha, va=va)
 ax.set_xlabel("p50 latency (s), mean of 3 runs; whiskers min–max across runs", fontsize=9, color=INK_2)
 ax.set_ylabel("Test-set accuracy (%); whiskers 95% interval", fontsize=9, color=INK_2)
 ax.set_title("Accuracy vs latency per configuration (filled = passes both A2 limits)",

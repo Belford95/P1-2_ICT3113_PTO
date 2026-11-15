@@ -1,0 +1,4 @@
+label,speed_config,p50_s,p50_min_s,p50_max_s,acc_pct,ci_lo,ci_hi,correct,n,verdict,failed_categories
+cascade-setting-1 [Setting 1],cascade1,4.395166666666667,4.1925,4.577,84.88372093023256,75.8,90.9,73,86,PASS,
+cascade-setting-2 [Setting 2],cascade2,4.801666666666667,4.404,5.014,83.72093023255815,74.5,90.0,72,86,PASS,
+qwen2.5:7b alone,qwen,6.947,5.994,7.4475,84.88372093023256,75.8,90.9,73,86,reference,
