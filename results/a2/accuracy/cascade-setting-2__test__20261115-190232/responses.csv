@@ -1,0 +1,87 @@
+row,gold_label,predicted,status,client_ms
+2029,Consumer loan,Consumer loan,200,4316.4
+2047,Bank account or service,Bank account or service,200,2012.2
+2073,Money transfer or service,Money transfer or service,200,4402.3
+2100,Credit reporting,Credit reporting,200,1249.7
+2117,Bank account or service,Bank account or service,200,4747.6
+2133,Credit card,Credit reporting,200,1925.3
+2139,Consumer loan,Consumer loan,200,4317.1
+2151,Credit card,Credit card,200,2172.3
+2153,Consumer loan,Consumer loan,200,5118.7
+2165,Consumer loan,Consumer loan,200,3019.7
+2179,Debt collection,Debt collection,200,1410.4
+2186,Debt collection,Debt collection,200,1178.1
+2189,Consumer loan,Consumer loan,200,5192.7
+2191,Debt collection,Debt collection,200,780.7
+2199,Bank account or service,Bank account or service,200,1994.7
+2208,Credit reporting,Credit reporting,200,769.0
+2210,Credit card,Credit card,200,995.9
+2218,Consumer loan,Credit reporting,200,1210.9
+2232,Money transfer or service,Bank account or service,200,1801.3
+2238,Credit card,Credit card,200,591.0
+2244,Credit reporting,Credit reporting,200,767.6
+2247,Consumer loan,Consumer loan,200,2901.6
+2252,Credit reporting,Bank account or service,200,6228.0
+2263,Consumer loan,Credit reporting,200,822.8
+2268,Mortgage,Mortgage,200,2113.0
+2285,Money transfer or service,Money transfer or service,200,892.2
+2290,Credit reporting,Credit reporting,200,1150.2
+2295,Mortgage,Mortgage,200,2249.3
+2300,Debt collection,Credit card,200,753.2
+2309,Bank account or service,Bank account or service,200,2103.1
+2313,Consumer loan,Consumer loan,200,3320.6
+2324,Money transfer or service,Money transfer or service,200,711.7
+2328,Bank account or service,Bank account or service,200,2063.2
+2356,Money transfer or service,Money transfer or service,200,956.7
+2361,Bank account or service,Bank account or service,200,6218.5
+2366,Money transfer or service,Credit card,200,1880.7
+2369,Bank account or service,Credit card,200,4483.8
+2374,Credit card,Credit card,200,5382.3
+2385,Consumer loan,Consumer loan,200,3234.8
+2392,Credit reporting,Credit reporting,200,2016.8
+2401,Money transfer or service,Consumer loan,200,5837.4
+2407,Mortgage,Mortgage,200,723.7
+2414,Credit reporting,Debt collection,200,786.9
+2417,Consumer loan,Consumer loan,200,4143.3
+2420,Bank account or service,Bank account or service,200,1839.4
+2443,Mortgage,Mortgage,200,758.5
+2459,Bank account or service,Bank account or service,200,3783.2
+2467,Consumer loan,Consumer loan,200,7178.8
+2479,Money transfer or service,Credit card,200,842.1
+2494,Debt collection,Debt collection,200,1782.6
+2498,Debt collection,Debt collection,200,2196.1
+2507,Mortgage,Mortgage,200,1833.7
+2512,Credit reporting,Credit reporting,200,796.4
+2520,Debt collection,Debt collection,200,808.8
+2539,Mortgage,Mortgage,200,1975.3
+2561,Bank account or service,Bank account or service,200,2074.2
+2563,Bank account or service,Bank account or service,200,3880.0
+2566,Credit card,Credit card,200,1310.2
+2578,Money transfer or service,Money transfer or service,200,905.6
+2602,Credit card,Credit card,200,1819.8
+2606,Money transfer or service,Money transfer or service,200,1847.3
+2628,Credit reporting,Credit reporting,200,766.0
+2639,Money transfer or service,Bank account or service,200,2102.5
+2650,Credit reporting,Credit reporting,200,608.6
+2667,Bank account or service,Bank account or service,200,2040.0
+2677,Bank account or service,Bank account or service,200,2076.5
+2690,Credit reporting,Debt collection,200,793.5
+2708,Credit reporting,Credit reporting,200,595.8
+2753,Consumer loan,Mortgage,200,740.7
+2769,Credit card,Credit card,200,826.1
+2777,Debt collection,Debt collection,200,4289.4
+2785,Mortgage,Mortgage,200,543.4
+2793,Mortgage,Mortgage,200,1812.0
+2809,Consumer loan,Consumer loan,200,5764.1
+2814,Credit card,Credit card,200,1589.5
+2843,Credit reporting,Credit reporting,200,780.1
+2880,Money transfer or service,Money transfer or service,200,1438.8
+2916,Mortgage,Mortgage,200,501.4
+2920,Credit reporting,Credit reporting,200,770.1
+2928,Consumer loan,Consumer loan,200,8314.4
+2932,Bank account or service,Bank account or service,200,3175.4
+2934,Credit reporting,Credit reporting,200,1541.4
+2943,Credit reporting,Credit reporting,200,563.1
+2954,Credit reporting,Credit reporting,200,787.9
+2977,Consumer loan,Consumer loan,200,4305.8
+2984,Credit reporting,Credit reporting,200,780.8

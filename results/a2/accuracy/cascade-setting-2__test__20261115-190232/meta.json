@@ -1,0 +1,30 @@
+{
+  "run_id": "a2__acc__cascade-setting-2__test__20261115-190232",
+  "set": "test",
+  "url": "http://localhost:8000",
+  "started": "20261115-190232",
+  "n": 86,
+  "config": "cascade-setting-2",
+  "mode": "cascade",
+  "cascade": true,
+  "model": "cascade-setting-2",
+  "config_detail": {
+    "mode": "cascade",
+    "config_label": "cascade-setting-2",
+    "num_ctx": 2048,
+    "small_model": "phi4-mini",
+    "large_model": "qwen2.5:7b",
+    "cascade_setting": "2",
+    "escalate_on": [
+      "Bank account or service",
+      "Consumer loan"
+    ]
+  },
+  "setting": "Setting 2",
+  "small_model": "phi4-mini",
+  "large_model": "qwen2.5:7b",
+  "escalate_on": [
+    "Bank account or service",
+    "Consumer loan"
+  ]
+}

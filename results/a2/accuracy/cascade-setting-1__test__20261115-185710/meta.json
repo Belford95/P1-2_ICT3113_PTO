@@ -1,0 +1,28 @@
+{
+  "run_id": "a2__acc__cascade-setting-1__test__20261115-185710",
+  "set": "test",
+  "url": "http://localhost:8000",
+  "started": "20261115-185710",
+  "n": 86,
+  "config": "cascade-setting-1",
+  "mode": "cascade",
+  "cascade": true,
+  "model": "cascade-setting-1",
+  "config_detail": {
+    "mode": "cascade",
+    "config_label": "cascade-setting-1",
+    "num_ctx": 2048,
+    "small_model": "phi4-mini",
+    "large_model": "qwen2.5:7b",
+    "cascade_setting": "1",
+    "escalate_on": [
+      "Bank account or service"
+    ]
+  },
+  "setting": "Setting 1",
+  "small_model": "phi4-mini",
+  "large_model": "qwen2.5:7b",
+  "escalate_on": [
+    "Bank account or service"
+  ]
+}
