@@ -14,7 +14,7 @@ def slug(s):
 
 def read_log(run_id=None, path=LOG_FILE):
     """Yield service log entries, optionally only those tagged with run_id (or run_id prefix ending in '*')."""
-    with open(path, encoding="utf-8") as f:
+    with open(path, encoding="utf-8-sig") as f:  # tolerate a BOM written by PowerShell
         for line in f:
             if not line.strip():
                 continue

@@ -58,7 +58,7 @@ if cfg.get("mode") == "cascade":
     # so read it from the service log instead.
     import json
     escalated = False
-    with open(ROOT / "logs" / "service.jsonl", encoding="utf-8") as f:
+    with open(ROOT / "logs" / "service.jsonl", encoding="utf-8-sig") as f:
         for line in f:
             if not line.strip():
                 continue
