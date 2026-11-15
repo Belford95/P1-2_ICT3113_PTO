@@ -91,15 +91,42 @@ Consequences for the test procedure:
 3. Section 5's figures stay in this file as supporting evidence only; Section 4 is the operating
    configuration.
 
-## 7. Outstanding: confirm no eviction under load
+## 7. No eviction under load: confirmed after the speed runs
 
-Sections 4 and 5 show both models resident at rest. After the first full cascade speed run, run
-`docker exec ollama ollama ps` and `docker stats --no-stream ollama` again, before anything else,
-and record the result here. Both models still listed with `UNTIL Forever` means nothing was evicted
-mid-run.
+Sections 4 and 5 show both models resident at rest. This section checks the case that would
+actually invalidate a cascade result: one model evicted mid-run, so every escalation pays a
+model load.
+
+Captured immediately after the last cascade speed run (`a2__speed__cascade2__run3__20261116-001807`,
+38 requests at 7.77/min over 5 minutes, 37% of them escalated), before anything was restarted:
+
+```
+NAME                ID              SIZE      PROCESSOR    CONTEXT    UNTIL
+phi4-mini:latest    78fad5d182a7    2.8 GB    100% CPU     2048       Forever
+qwen2.5:7b          845dbda0ea48    4.9 GB    100% CPU     2048       Forever
+
+CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT     MEM %
+58a7dbaf81b9   ollama    0.01%     8.917GiB / 15.46GiB   57.66%
+```
+
+**Both models were still resident after the run**, at context 2048, on CPU, with `UNTIL Forever`:
+nothing was evicted and no escalation paid a model load. Peak container memory was 8.92 GiB of
+15.46 GiB (57.7%), about 1.3 GiB above the at-rest figure in section 4, which is the KV cache and
+runtime working set of a loaded run. Roughly 6.5 GiB of headroom remained.
+
+Corroborating evidence from the service log: across all nine speed runs every request returned
+HTTP 200, and no `load_duration` above a few milliseconds appears in any measured ticket (model
+loads occur only in the discarded warm-up tickets, `run_id` `a2__warmup`).
 
 | Check | Status |
 |---|---|
 | Both models resident at 2048 via the service | done, section 4 |
 | All three pairs fit at 4096 | done, section 5 |
-| Still both resident after a full cascade run | **pending first speed run** |
+| Still both resident after a full cascade run | **done: 8.92 / 15.46 GiB, both `Forever`** |
+
+## 8. Conclusion
+
+The cascade's memory precondition holds on this machine with the Assignment 1 hardware unchanged:
+`phi4-mini` and `qwen2.5:7b` stay loaded together, at the service's context size, at rest and
+under load, using about 58% of the RAM available to Docker. No pair of candidates was excluded
+for memory reasons.
